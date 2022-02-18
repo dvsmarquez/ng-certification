@@ -1,6 +1,10 @@
 # Certificación Angular
 
-Preparación:
+## Requisitos
+
+- _Node_ versión 14 o superior.
+
+## Preparación:
 
 - Copie y pegue el archivo `api-keys.example.ts` que se encuentra en _src/environments_ como `api-keys.ts`.
 
