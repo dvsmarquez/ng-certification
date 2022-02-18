@@ -1,0 +1,24 @@
+<div class="well">
+  <form [formGroup]="formGroup" (ngSubmit)="addLocation()">
+    <h2>Enter a zipcode:</h2>
+    <input class="form-control" placeholder="Zipcode" formControlName="zipCode">
+    <p class="invalid-feedback text-danger" *ngIf="submitted && formGroup.get('zipCode').hasError('required')">
+      Zipcode is required!
+    </p>
+    <ng-container [ngSwitch]="error">
+      <p class="invalid-feedback text-danger" *ngSwitchCase="ERROR_TYPES.ALREADY_SET">
+        Zipcode was already saved!
+      </p>
+      <p class="invalid-feedback text-danger" *ngSwitchCase="ERROR_TYPES.NOT_FOUND">
+        Zipcode was not found!
+      </p>
+      <p class="invalid-feedback text-danger" *ngSwitchCase="ERROR_TYPES.SERVICE_UNAVAILABLE">
+        Service unavailable!
+      </p>
+    </ng-container>
+    <br>
+    <button class="btn btn-primary" type="submit">
+      Add location
+    </button>
+  </form>
+</div>

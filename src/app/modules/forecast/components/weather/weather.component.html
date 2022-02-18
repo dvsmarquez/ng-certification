@@ -1,0 +1,23 @@
+<div class="well flex" *ngFor="let w of weather">
+  <div>
+    <h3>{{ w.name }} ({{ w.zipCode }})</h3>
+    <h4>Current conditions: {{ w.description }}</h4>
+    <h4>Temperatures today:</h4>
+    <p>
+      Current {{ w.temperature }}
+      - Max {{ w.maxTemperature }}
+      - Min {{ w.minTemperature }}
+    </p>
+    <p>
+      <a [routerLink]="['./forecast/', w.zipCode]">Show 5-day forecast for {{ w.name }}</a>
+    </p>
+  </div>
+  <div>
+    <span class="close" (click)="delete(w.zipCode)">×</span>
+    <img src="https://www.angulartraining.com/images/weather/{{ w.icon }}">
+  </div>
+</div>
+
+<p class="text-danger text-center" *ngIf="error === ERRORS_TYPE.SERVICE_UNAVAILABLE">
+  Service unavailable!
+</p>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{ forecast.city }}</h3>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let day of forecast.list">
+        {{ day.date | date : 'EEEE, MMMM d' }}:
+        {{ day.description }}
+        - Min: {{ day.minTemperature }}
+        - Max: {{ day.maxTemperature }}
+        <img class="icon" src="https://www.angulartraining.com/images/weather/{{ day.icon }}">
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success" tabindex="0" routerLink="/">&lt; Back to main page</button>
+</div>

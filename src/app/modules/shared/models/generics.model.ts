@@ -1,0 +1,5 @@
+export enum ERRORS {
+  'ALREADY_SET',
+  'NOT_FOUND',
+  'SERVICE_UNAVAILABLE'
+}
